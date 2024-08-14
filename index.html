@@ -4,14 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Poblacional Baja California Sur | Prueba técnica - Prosperia</title>
-    <link rel="stylesheet" href="assets/styles/config.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <!-- SCRIPTS Arcgis -->
+    <script src="./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/init.js"></script>
+    <script type="module" src="https://js.arcgis.com/calcite-components/2.8.5/calcite.esm.js"></script>
+        <!-- ArcGIS App -->
+    <script type="module" src="./assets/js/modules/app.js"></script>
 </head>
 <body>
-    <div id="viewDiv">
-        hey!
-    </div>
-    <div id="KPIs">
+    <nav class="navbar bg_navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/icons//prosperia_txt-rojo.png" alt="properia" width="160" height="40"
+                    class="d-inline-block align-text-top">
+            </a>
+        </div>
+    </nav>
+    <section class="bg_mapa pt-5">
+        <div class="container mapa">
+            <div id="viewDiv" class="esri-widget" style="border-radius: 30px;"></div>
+            <div id="basemapSelect">
+                <calcite-label style="background-color: white; text-align: center;">Tipo de Mapa</calcite-label>
+                <calcite-combobox id="styleCombobox" selection-mode="single" clear-disabled>
+                    <calcite-combobox-item value="hybrid" text-label="Vista de Satélite"></calcite-combobox-item>
+                    <calcite-combobox-item value="gray" text-label="Gris Claro"></calcite-combobox-item>
+                    <calcite-combobox-item value="dark-gray" text-label="Gris Oscuro"></calcite-combobox-item>
+                    <calcite-combobox-item value="streets" text-label="Calles"></calcite-combobox-item>
+                    <calcite-combobox-item value="streets-night-vector" text-label="Calles de Noche"></calcite-combobox-item>
+                    <calcite-combobox-item value="streets-relief-vector" text-label="Calles con Relieve"></calcite-combobox-item>
+                    <calcite-combobox-item value="topo-vector" text-label="Mapa Topográfico"></calcite-combobox-item>
+                    <calcite-combobox-item value="terrain" text-label="Terreno"></calcite-combobox-item>
+                    <calcite-combobox-item value="oceans" text-label="Océanos"></calcite-combobox-item>
+                </calcite-combobox>
+            </div>
+        </div>
+    </section>
+    <section id="KPIs">
+        <ul>
+            <li><b>Sumatoria total de proyectos: </b><span id="sumTotProy"></span></li>
+            <li><b>Sumatoria de unidades totales: </b><span id="sumUdsTot"></span></li>
+            <li><b>Sumatoria de unidades disponibles: </b><span id="sumUdsDisp"></span></li>
+            <li><b>Promedio de $UD: </b><span id="promUD"></span></li>
+        </ul>
+    </section>
+    <section class="bg_mapa">
+        <div class="container pb-5">
+            <center><button id="btnPdf">Descargar PDF</button></center>
+        </div>
+    </section>
 
+    <div id="contenidoPDF" class="container">
+        <center>
+            <div id="canvaGrafico" style="width: 440px;">
+                <canvas id="miGrafico"></canvas>
+            </div>
+        </center>
     </div>
+    <footer class="bg-footer">
+        <div class="container pt-5 pb-5">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <p>CONTACTO T. +52 81 3651 0044</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p>Av. Lázaro Cárdenas #1010. Torre Ixco. Piso 4, Of. 401, <br>Residencial San Agustín. 66220 SPGG,
+                        NL</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="assets/img/prosperia_txt-blanco.png" alt="properia" width="210" height="40"
+                        class="d-inline-block align-text-top">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/scripts/pdf.js"></script>
 </body>
 </html>
