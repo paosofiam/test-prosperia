@@ -86,3 +86,83 @@ import {URLmunicipios, URLproyectos, key, PROYECTSoutFields, BCSoutFields, marke
 
             /*Inclusión de lista de capas de servicios*/
         view.ui.add(layerList, {position: "bottom-right"});
+
+/*Filtro de Proyectos enla vista*/
+let projects;
+
+const layerView0 = await view.whenLayerView(dots);
+reactiveUtils.when(
+    () => !layerView0.dataUpdating,
+    async () => {
+        try {
+            const featureSet = await layerView0.queryFeatures({// query all the features available for drawing.
+                geometry: view.extent,
+                returnGeometry: true,
+                orderByFields: ["PROYECTO"]
+            });
+            projects = featureSet.features;
+
+            const sumProjs = projects.length;
+            var sumUnitsTotal = 0;
+            var sumUnitsAvailable = 0;
+            var sumUnitsAverage = 0;
+            var objID = [];
+            var udsTot = [];
+            var absMes = [];
+
+            projects.forEach(element => {
+                const OBJID = element.attributes.OBJECTID;
+                const FUDPROM = element.attributes.F__UD_PROM;
+                const UDSTOT = element.attributes.UDS_TOT;
+                const UDSDISP = element.attributes.UDS_DISP;
+                const ABSMES = element.attributes.ABS_MES;
+                sumUnitsTotal = sumUnitsTotal + UDSTOT;
+                sumUnitsAvailable = sumUnitsAvailable + UDSDISP;
+                sumUnitsAverage = sumUnitsAverage + FUDPROM;
+                objID.push(OBJID);
+                udsTot.push(UDSTOT);
+                absMes.push(ABSMES);
+            });
+
+            const graph2 ={
+                'OBJECTID' : objID,
+                'UDS_TOT' : udsTot,
+                'ABS_MES' : absMes
+            }
+
+            document.getElementById('sumTotProy').innerHTML = sumProjs;
+            document.getElementById('sumUdsTot').innerHTML = sumUnitsTotal;
+            document.getElementById('sumUdsDisp').innerHTML = sumUnitsAvailable;
+            document.getElementById('promUD').innerHTML = sumUnitsAverage/sumProjs;
+            
+            //console.log([sumProjs,sumUnitsTotal,sumUnitsAvailable,sumUnitsAverage]);
+        } catch (error) {
+            console.error("query failed: ", error);
+        }
+    }
+);
+
+let BCS;
+const layerView1 = await view.whenLayerView(polygon);
+reactiveUtils.when(
+    () => !layerView1.dataUpdating,
+    async () => {
+        try {
+            const featureSet = await layerView1.queryFeatures({// query all the features available for drawing.
+                geometry: view.extent,
+                returnGeometry: true/* ,
+                orderByFields: ["FID"] */
+            });
+            BCS = featureSet.features;
+            //var objID = [];
+            //BCS.forEach(element => {
+                /*const OBJID = element.attributes.OBJECTID;
+                objID.push(OBJID);*/
+            //});
+            //graph2 ={'OBJECTID' : objID}
+            console.log(BCS[0].attributes);
+        } catch (error) {
+            console.error("query failed: ", error);
+        }
+    }
+);
