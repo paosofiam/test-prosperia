@@ -130,10 +130,20 @@ reactiveUtils.when(
                 'ABS_MES' : absMes
             }
 
+            plotGraph(graph2);
+
             document.getElementById('sumTotProy').innerHTML = sumProjs;
             document.getElementById('sumUdsTot').innerHTML = sumUnitsTotal;
             document.getElementById('sumUdsDisp').innerHTML = sumUnitsAvailable;
-            document.getElementById('promUD').innerHTML = sumUnitsAverage/sumProjs;
+
+            if(sumProjs === 0){
+                sumUnitsAverage = 0;
+            }
+            else{
+                sumUnitsAverage = sumUnitsAverage/sumProjs;
+            }
+
+            document.getElementById('promUD').innerHTML = sumUnitsAverage;
             
             //console.log([sumProjs,sumUnitsTotal,sumUnitsAvailable,sumUnitsAverage]);
         } catch (error) {
@@ -142,7 +152,7 @@ reactiveUtils.when(
     }
 );
 
-let BCS;
+/*let BCS;
 const layerView1 = await view.whenLayerView(polygon);
 reactiveUtils.when(
     () => !layerView1.dataUpdating,
@@ -150,14 +160,14 @@ reactiveUtils.when(
         try {
             const featureSet = await layerView1.queryFeatures({// query all the features available for drawing.
                 geometry: view.extent,
-                returnGeometry: true/* ,
-                orderByFields: ["FID"] */
+                returnGeometry: true,
+                orderByFields: ["*"]
             });
             BCS = featureSet.features;
             //var objID = [];
             //BCS.forEach(element => {
-                /*const OBJID = element.attributes.OBJECTID;
-                objID.push(OBJID);*/
+                //const OBJID = element.attributes.OBJECTID;
+                //objID.push(OBJID);
             //});
             //graph2 ={'OBJECTID' : objID}
             console.log(BCS[0].attributes);
@@ -165,4 +175,4 @@ reactiveUtils.when(
             console.error("query failed: ", error);
         }
     }
-);
+);*/

@@ -1,9 +1,3 @@
-console.log("pdf.js ready");
-
-document.getElementById('btnPdf').addEventListener('click', function () {
-    generatePDF();
-});
-
 function generatePDF() {
     const { jsPDF } = window.jspdf;
     html2canvas(document.getElementById("contenidoPDF"), {
