@@ -153,7 +153,7 @@ reactiveUtils.when(
     }
 );
 
-/*let BCS;
+let BCS;
 const layerView1 = await view.whenLayerView(polygon);
 reactiveUtils.when(
     () => !layerView1.dataUpdating,
@@ -176,4 +176,4 @@ reactiveUtils.when(
             console.error("query failed: ", error);
         }
     }
-);*/
+);
