@@ -1,14 +1,14 @@
 /*Importación de Librerías*/
-import FeatureLayer from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/layers/FeatureLayer.js";
-import Map from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/Map.js";
-import MapView from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/views/MapView.js";
-import Extent from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/geometry/Extent.js";
-import * as projection from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/geometry/projection.js";
-import Basemap from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/Basemap.js";
-import LayerList from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/widgets/LayerList.js";
-import * as reactiveUtils from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/core/reactiveUtils.js";
-import Query from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/Basemap.js";
-import Field from "./assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/layers/support/Field.js";
+import FeatureLayer from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/layers/FeatureLayer.js";
+import Map from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/Map.js";
+import MapView from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/views/MapView.js";
+import Extent from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/geometry/Extent.js";
+import * as projection from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/geometry/projection.js";
+import Basemap from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/Basemap.js";
+import LayerList from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/widgets/LayerList.js";
+import * as reactiveUtils from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/core/reactiveUtils.js";
+import Query from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/Basemap.js";
+import Field from "../libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/layers/support/Field.js";
 
 import {URLmunicipios, URLproyectos, key, PROYECTSoutFields, BCSoutFields, markerRenderer, markerLabels, columnChart, barChart } from "./info-services.js";
 
