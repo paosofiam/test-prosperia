@@ -101,6 +101,16 @@ p::selection {
     color: var(--crema);
 }
 
+a{
+    color: var(--rojo);
+}
+a:hover{
+    color: var(--dorado);
+}
+a:visited{
+    color: var(--dorado);
+}
+
 /* 
 :host([scale="m"]) .container {
     margin-block-end: var(--calcite-label-margin-bottom, 0.35rem);
