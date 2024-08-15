@@ -1,11 +1,9 @@
 function generatePDF() {
     const { jsPDF } = window.jspdf;
-    html2canvas(document.getElementById("contenidoPDF"), {
+    html2canvas(document.getElementById("PDFcontent"), {
         useCORS: true,
         onrendered: (canvas) => {
-            let doc = new jsPDF("p", "mm", "a4");
-            //Obtengo la dimensión en pixeles en base a la documentación
-            // https://github.com/MrRio/jsPDF/blob/ddbfc0f0250ca908f8061a72fa057116b7613e78/jspdf.js#L59
+            let doc = new jsPDF("p", "mm", "a4");//Obtengo la dimensión en pixeles en base a la documentación https://github.com/MrRio/jsPDF/blob/ddbfc0f0250ca908f8061a72fa057116b7613e78/jspdf.js#L59
             let a4Size = {
                 w: convertPointsToUnit(595.28, "px"),
                 h: convertPointsToUnit(841.89, "px")
@@ -51,12 +49,11 @@ function generatePDF() {
                 page++; // actualizo mi pagina
             }
 
-            doc.save("graficas.pdf");
+            doc.save("KPIs.pdf");
         }
     });
 
-    function convertPointsToUnit(points, unit) {
-        // Unit table from https://github.com/MrRio/jsPDF/blob/ddbfc0f0250ca908f8061a72fa057116b7613e78/jspdf.js#L791
+    function convertPointsToUnit(points, unit) {// Tabla de unidades de https://github.com/MrRio/jsPDF/blob/ddbfc0f0250ca908f8061a72fa057116b7613e78/jspdf.js#L791
         var multiplier;
         switch (unit) {
             case "pt":

@@ -10,6 +10,7 @@ import * as reactiveUtils from "/assets/js/libraries/arcgis_js_v430_api/arcgis_j
 import Query from "/assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/Basemap.js";
 import Field from "/assets/js/libraries/arcgis_js_v430_api/arcgis_js_api/javascript/4.30/@arcgis/core/layers/support/Field.js";
 
+/*Importación de info (objetos y arreglos) para las funciones de ArcGIS*/
 import {URLmunicipios, URLproyectos, key, PROYECTSoutFields, BCSoutFields, markerRenderer, markerLabels, columnChart, barChart } from "./info-services.js";
 
         /*Inicialización de mapa de fondo*/

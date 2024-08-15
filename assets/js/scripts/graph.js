@@ -1,8 +1,8 @@
 let myGraph;
 
-function plotGraph(graphData) {
-    var ctx = document.getElementById('miGrafico').getContext('2d');
-    /*ctx.clearRect(0, 0, ctx.width, ctx.height);*/
+/*Función para imprimir PDFs*/
+function plotGraph(graphData) {//La función se llama directo desde el index.html con "onclick"
+    var ctx = document.getElementById('myGraph').getContext('2d');
 
     var line1 = {
         label: "UDS_TOT",
@@ -19,13 +19,9 @@ function plotGraph(graphData) {
         borderColor: 'plum'
     };
 
-    if (myGraph) {
+    if (myGraph) {//Si ya hay un canvas lo destruye antes de imprimir uno nuevo para permitir la actualización/filtrado por el mapa
         myGraph.destroy();
     }
-    /* var myGraph = new Chart(ctx, {
-        type: 'line',
-        data: plotData
-    }); */
 
     myGraph = new Chart(ctx, {
         type: 'line',

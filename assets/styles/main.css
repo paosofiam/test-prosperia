@@ -73,12 +73,6 @@ span{
     color: var(--crema);
 }
 
-/* .mapa {
-    height: 600px;
-    width: auto;
-    padding: 50px,200px;
-} */
-
 #btnPdf {
     background-color: var(--rojo);
     color: var(--crema);
